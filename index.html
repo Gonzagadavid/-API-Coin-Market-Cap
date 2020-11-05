@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CoinMarketCap</title>
+        <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+       <link rel= "stylesheet" type="text/css" href="./style.css">
+        <meta charset="=utf-8">
+    </head>
+    <body>
+        <div class="hitoria">
+            
+               <h1 class="historia2"> História da criptomoeda</h1>
+ <h2 class="historia3">
+     
+<p class="texto1">
+Em 1998, Wei Dai publicou a descrição do "Dinheiro B", um sistema eletrônico e anônimo de pagamento. Pouco depois, Nick Szabo criou o "Bit Gold".
+
+Assim como o Bitcoin e outras criptomoedas que o seguiram, Bit Gold era um sistema de moeda eletrônico que exigia seus usuários completarem uma função de prova de trabalho, com as soluções sendo criptograficamente computadas e publicadas.
+
+A primeira criptomoeda descentralizada, o Bitcoin, foi criado em 2009 por Satoshi Nakamoto, pseudônimo utilizado pela pessoa que criou a moeda virtual.
+
+Em abril de 2011, o Namecoin foi criada como uma tentativa de formar um DNS descentralizado, o que tornaria a censura na internet algo muito difícil. Em outubro de 2011, Litecoin foi lançada.
+
+Outra criptomoeda, Peercoin, foi a primeira a usar um híbrido de prova de trabalho e prova de participação. 
+
+A partir de 2014, uma nova geração de criptomoedas surgiu, como a Ethereum e Nxt. Essas criptomoedas possuem funcionalidades avançadas como endereços escondidos e contratos inteligentes.
+ </p>
+</h2>
+        </div>
+        
+        
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Coin Market Cap</li>
+            </ol>
+          </nav>
+        
+          <div class="d-flex p-3 bd-highlight">
+            <div id='coins'></div>
+          </div>
+
+        <script type="text/javascript">
+        //my api key
+        var apikey = {
+            key: "f4bb0249-2a18-4701-803d-6d9859512c11"
+        }
+        //get fetch requisition
+        fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' +
+        apikey.key)
+        .then((response) => {
+            if(!response.ok)throw new Error('Erro ao executar a requisição, status' + response.status);
+            return response.json();
+        })
+                
+        .then((api)=> {
+             
+                var texto = "";
+                // Get 10 coins and symbols 
+                for(let i = 0; i < 10; i++){
+
+                    //Show API information
+
+                   texto = texto + `
+                  
+                  <div class="media">
+                      <img src="./img/moedas.jpg"  class="align-self-center mr-3" alt="coin" width="100" height="60">
+                      <div class="media-body">
+                      <h5 class="mt-2">${api.data[i].name}</h5>
+                      <p>${api.data[i].symbol}</p>
+                      </div>
+                  </div>`;
+
+                  document.getElementById("coins").innerHTML = texto;
+                   }
+                })
+
+
+
+        .catch((error)=>{
+            console.log(error.message);
+        })
+        </script>
+    </body>
+</html>

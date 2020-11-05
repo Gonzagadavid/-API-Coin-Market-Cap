@@ -1,0 +1,35 @@
+
+/* Titulo do texto historia da criptomoeda*/
+.historia2 {   
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;                     
+    font-size: 50px;
+    align-items: center;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
+    color: goldenrod
+}
+/* container do texto historia da criptomoeda */
+.historia3{                       
+    flex-direction: column;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+    justify-content: center;
+    width: 90%;
+    background-image: url('./img/criptomoedas.png');
+    background-position: center right, center center;
+    color: white;
+    
+}
+/*texto historia da criptomoeda */
+.texto1{
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
